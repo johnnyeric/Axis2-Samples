@@ -13,6 +13,7 @@
         <module>web-services</module>
         <module>reliable-messaging</module>
         <module>commons</module>
+        <module>Json_badgerfish</module>
     </modules>
 
 
