@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http//axis2.apache.org/sample/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http//axis2.apache.org/sample/wsdl/types" xmlns:tns="http//axis2.apache.org/sample/wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http//axis2.apache.org/sample/wsdl/types" xmlns:tns="http//axis2.apache.org/sample/wsdl/types" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:element name="echoString">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="param" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="echoStringResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="param" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="echoProject">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="param" type="tns:project"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="echoProjectResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="param" type="tns:project"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="project">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string"/>
+                    <xsd:element name="manager" type="tns:employee"/>
+                    <xsd:element maxOccurs="unbounded" name="developers" type="tns:employee"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="employee">
+                <xsd:sequence>
+                    <xsd:element name="name" type="xsd:string"/>
+                    <xsd:element name="empID" type="xsd:string"/>
+                    <xsd:element name="age" type="xsd:int"/>
+                    <xsd:element name="salary" type="xsd:double"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+  </types>
+  <message name="EchoProjectRequest">
+    <part name="part" element="ns1:echoProject">
+    </part>
+  </message>
+  <message name="EchoStringResponse">
+    <part name="part" element="ns1:echoStringResponse">
+    </part>
+  </message>
+  <message name="EchoProjectResponse">
+    <part name="part" element="ns1:echoProjectResponse">
+    </part>
+  </message>
+  <message name="EchoStringRequest">
+    <part name="part" element="ns1:echoString">
+    </part>
+  </message>
+  <portType name="SamplePortType">
+    <operation name="echoString">
+      <input message="tns:EchoStringRequest">
+    </input>
+      <output message="tns:EchoStringResponse">
+    </output>
+    </operation>
+    <operation name="echoProject">
+      <input message="tns:EchoProjectRequest">
+    </input>
+      <output message="tns:EchoProjectResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="SampleSoap12Binding" type="tns:SamplePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="echoString">
+      <soap12:operation soapAction="urn:echoString" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="echoProject">
+      <soap12:operation soapAction="urn:echoProject" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="SampleSoap11Binding" type="tns:SamplePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="echoString">
+      <soap:operation soapAction="urn:echoString" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="echoProject">
+      <soap:operation soapAction="urn:echoProject" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SampleService">
+    <port name="Soap12Port" binding="tns:SampleSoap12Binding">
+      <soap:address location="http://localhost:8080/axis2/services/SampleService"/>
+    </port>
+    <port name="Soap11Port" binding="tns:SampleSoap11Binding">
+      <soap:address location="http://localhost:8080/axis2/services/SampleService"/>
+    </port>
+  </service>
+</definitions>

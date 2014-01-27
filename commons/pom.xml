@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>axis2-maven-sample</artifactId>
+        <groupId>axis2-maven-sample</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>commons</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>adb</module>
+        <module>dynamic-client</module>
+        <module>dynamic-service</module>
+        <module>addressing-client</module>
+        <module>addressing-service</module>
+        <module>invocation-client</module>
+        <module>invocation-service</module>
+        <module>mtom-client</module>
+        <module>mtom-service</module>
+        <module>rest-client</module>
+        <module>rest-service</module>
+        <module>session-client</module>
+        <module>session-service</module>
+    </modules>
+
+
+</project>

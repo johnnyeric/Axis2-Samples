@@ -1,0 +1,16 @@
+<service name="InvocationService" targetNamespace="http//axis2.apache.org/sample/invocation">
+    <description>
+        This is my first service, which says hello
+    </description>
+    <schema schemaNamespace="http//axis2.apache.org/sample/invocation/types"
+            elementFormDefaultQualified="true">
+        <mapping namespace="http//axis2.apache.org/sample/invocation/types"
+                 package="org.apache.axis2.sample.invocation.types"/>
+    </schema>
+    <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </messageReceivers>
+    <parameter name="ServiceClass">org.apache.axis2.sample.invocation.service.InvocationService</parameter>
+    <parameter name="messageReceiver.invokeOnSeparateThread">true</parameter>
+</service>

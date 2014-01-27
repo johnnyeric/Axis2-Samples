@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6-wso2v1  Built on : Sep 30, 2010 (09:30:50 IST) -->
+<serviceGroup>
+    <service name="RestService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.apache.axis2.sample.rest.RestServiceMessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="org.apache.axis2.sample.rest.RestServiceMessageReceiverInOnly"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.apache.axis2.sample.rest.RestServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="add" mep="http://www.w3.org/ns/wsdl/in-only" namespace="http://axis2.apache.org/sample/rest">
+            <actionMapping>\"\"</actionMapping>
+            <outputActionMapping>urn:addResponse</outputActionMapping>
+        </operation>
+        <operation name="delete" mep="http://www.w3.org/ns/wsdl/in-only" namespace="http://axis2.apache.org/sample/rest">
+            <actionMapping>\"\"</actionMapping>
+            <outputActionMapping>urn:deleteResponse</outputActionMapping>
+        </operation>
+        <operation name="update" mep="http://www.w3.org/ns/wsdl/in-only" namespace="http://axis2.apache.org/sample/rest">
+            <actionMapping>\"\"</actionMapping>
+            <outputActionMapping>urn:updateResponse</outputActionMapping>
+        </operation>
+        <operation name="get" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://axis2.apache.org/sample/rest">
+            <actionMapping>\"\"</actionMapping>
+            <outputActionMapping>urn:getResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

@@ -1,0 +1,19 @@
+<serviceGroup>
+    <service name="SampleService">
+        <description>Sample Service</description>
+        <messageReceivers>
+            <messageReceiver
+                    mep="http://www.w3.org/2004/08/wsdl/in-only"
+                    class="org.apache.axis2.api.service.SampleInOnlyMessageReceiver"/>
+            <messageReceiver
+                    mep="http://www.w3.org/2004/08/wsdl/in-out"
+                    class="org.apache.axis2.api.service.SampleInOutMessageReceiver"/>
+        </messageReceivers>
+        <operation name="SampleInOnlyOperation" mep="http://www.w3.org/ns/wsdl/in-only">
+            <actionMapping>urn:SampleInOnlyOperation</actionMapping>
+        </operation>
+        <operation name="SampleInOutOperation" mep="http://www.w3.org/ns/wsdl/in-out">
+            <actionMapping>urn:SampleInOutOperation</actionMapping>
+        </operation>
+    </service>
+</serviceGroup>

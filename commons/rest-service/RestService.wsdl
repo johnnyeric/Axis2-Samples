@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl2:description xmlns:wsdl2="http://www.w3.org/ns/wsdl"
+                   xmlns:wsoap="http://www.w3.org/ns/wsdl/soap"
+                   xmlns:wrpc="http://www.w3.org/ns/wsdl/rpc"
+                   xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                   xmlns:wsdlx="http://www.w3.org/ns/wsdl-extensions"
+                   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                   xmlns:whttp="http://www.w3.org/ns/wsdl/http"
+                   xmlns:tns="http://axis2.apache.org/sample/rest"
+                   xmlns:ns="http://axis2.apache.org/sample/rest/types"
+                   targetNamespace="http://axis2.apache.org/sample/rest">
+    <wsdl2:types>
+        <xs:schema attributeFormDefault="qualified"
+                   elementFormDefault="qualified"
+                   xmlns:tns="http://axis2.apache.org/sample/rest/types"
+                   targetNamespace="http://axis2.apache.org/sample/rest/types">
+            <xs:element name="Student">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="age" type="xs:int"/>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="subjects"
+                                    nillable="true"
+                                    type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="StudentName">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl2:types>
+    <wsdl2:interface name="ServiceInterface">
+        <wsdl2:operation name="get" style="http://www.w3.org/ns/wsdl/style/rpc"
+                         pattern="http://www.w3.org/ns/wsdl/in-out">
+            <wsdl2:input element="ns:StudentName" wsaw:Action="urn:get"/>
+            <wsdl2:output element="ns:Student" wsaw:Action="urn:getResponse"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="add" style="http://www.w3.org/ns/wsdl/style/rpc"
+                         pattern="http://www.w3.org/ns/wsdl/in-only">
+            <wsdl2:input element="ns:Student" wsaw:Action="urn:add"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="update" style="http://www.w3.org/ns/wsdl/style/rpc"
+                         pattern="http://www.w3.org/ns/wsdl/in-only">
+            <wsdl2:input element="ns:Student" wsaw:Action="urn:update"/>
+        </wsdl2:operation>
+        <wsdl2:operation name="delete" pattern="http://www.w3.org/ns/wsdl/in-only">
+            <wsdl2:input element="ns:StudentName" wsaw:Action="urn:delete"/>
+        </wsdl2:operation>
+    </wsdl2:interface>
+    <wsdl2:binding name="RestServiceSoap12Binding" interface="tns:ServiceInterface"
+                   type="http://www.w3.org/ns/wsdl/soap" wsoap:version="1.2">
+        <wsdl2:operation ref="tns:get" wsoap:action="urn:get">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:add" wsoap:action="urn:add">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:update" wsoap:action="urn:update">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:delete" wsoap:action="urn:delete">
+        </wsdl2:operation>
+    </wsdl2:binding>
+    <wsdl2:binding name="RestServiceSoap11Binding" interface="tns:ServiceInterface"
+                   type="http://www.w3.org/ns/wsdl/soap" wsoap:version="1.1">
+        <wsdl2:operation ref="tns:get" wsoap:action="urn:get">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:add" wsoap:action="urn:add">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:update" wsoap:action="urn:update">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:delete" wsoap:action="urn:delete">
+        </wsdl2:operation>
+    </wsdl2:binding>
+    <wsdl2:binding name="RestServiceHttpBinding" interface="tns:ServiceInterface"
+                   type="http://www.w3.org/ns/wsdl/http">
+        <wsdl2:operation ref="tns:get" whttp:location="student/{name}" whttp:method="GET">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:add" whttp:location="student/{name}" whttp:method="POST">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:update" whttp:location="student/{name}" whttp:method="PUT">
+        </wsdl2:operation>
+        <wsdl2:operation ref="tns:delete" whttp:location="student/{name}" whttp:method="DELETE">
+        </wsdl2:operation>
+    </wsdl2:binding>
+    <wsdl2:service name="RestService" interface="tns:ServiceInterface">
+        <wsdl2:endpoint name="RestServiceHttpEndpoint" binding="tns:RestServiceHttpBinding"
+                        address="http://localhost:8080/axis2/services/RestService"/>
+    </wsdl2:service>
+</wsdl2:description>

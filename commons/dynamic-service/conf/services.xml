@@ -1,0 +1,15 @@
+<service name="DynamicService" targetNamespace="http//axis2.apache.org/sample/dynamic">
+    <description>
+        This is my first service, which says hello
+    </description>
+    <schema schemaNamespace="http//axis2.apache.org/sample/dynamic/types"
+            elementFormDefaultQualified="true">
+        <mapping namespace="http//axis2.apache.org/sample/dynamic/types"
+                 package="org.apache.axis2.sample.dynamic.types"/>
+    </schema>
+    <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </messageReceivers>
+    <parameter name="ServiceClass">org.apache.axis2.sample.dynamic.service.DynamicService</parameter>
+</service>

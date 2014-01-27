@@ -1,0 +1,58 @@
+<serviceGroup>
+    <service name="RequestSessionService"
+             scope="request"
+             targetNamespace="http//axis2.apache.org/sample/session">
+        <schema schemaNamespace="http//axis2.apache.org/sample/session/types"
+                elementFormDefaultQualified="true"/>
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                             class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.apache.axis2.sample.session.service.SessionService
+        </parameter>
+    </service>
+    <service name="SoapSessionService"
+             scope="soapsession"
+             targetNamespace="http//axis2.apache.org/sample/session">
+        <schema schemaNamespace="http//axis2.apache.org/sample/session/types"
+                elementFormDefaultQualified="true"/>
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                             class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.apache.axis2.sample.session.service.SessionService
+        </parameter>
+    </service>
+    <service name="TransportSessionService"
+             scope="transportsession"
+             targetNamespace="http//axis2.apache.org/sample/session">
+        <schema schemaNamespace="http//axis2.apache.org/sample/session/types"
+                elementFormDefaultQualified="true"/>
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                             class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.apache.axis2.sample.session.service.SessionService
+        </parameter>
+    </service>
+    <service name="ApplicationSessionService"
+             scope="application"
+             targetNamespace="http//axis2.apache.org/sample/session">
+        <schema schemaNamespace="http//axis2.apache.org/sample/session/types"
+                elementFormDefaultQualified="true"/>
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+                             class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+            <messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.apache.axis2.sample.session.service.SessionService
+        </parameter>
+    </service>
+</serviceGroup>

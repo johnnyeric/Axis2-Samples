@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST) -->
+<serviceGroup>
+    <service name="SampleService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.apache.axis2.sample.wsdl.service.SampleServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.apache.axis2.sample.wsdl.service.SampleServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="echoString" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http//axis2.apache.org/sample/wsdl">
+            <actionMapping>urn:echoString</actionMapping>
+            <outputActionMapping>http//axis2.apache.org/sample/wsdl/SamplePortType/echoStringResponse</outputActionMapping>
+        </operation>
+        <operation name="echoProject" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http//axis2.apache.org/sample/wsdl">
+            <actionMapping>urn:echoProject</actionMapping>
+            <outputActionMapping>http//axis2.apache.org/sample/wsdl/SamplePortType/echoProjectResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

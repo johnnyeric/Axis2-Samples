@@ -1,0 +1,1 @@
+wsdl2java -uri http://localhost:8080/axis2/services/ApplicationSessionService?wsdl -u -uw -ns2p http//axis2.apache.org/sample/session=org.apache.axis2.sample.session.application.client,http//axis2.apache.org/sample/session/types=org.apache.axis2.sample.session.application.types

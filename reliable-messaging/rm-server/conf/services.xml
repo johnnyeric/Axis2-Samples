@@ -1,0 +1,18 @@
+<service name="RMService" targetNamespace="http//axis2.apache.org/sample/rm">
+    <description>
+        This is my first service, which says hello
+    </description>
+    <schema schemaNamespace="http//axis2.apache.org/sample/rm/types"
+            elementFormDefaultQualified="true">
+        <mapping namespace="http//axis2.apache.org/sample/rm/types"
+                 package="org.apache.axis2.sample.rm.types"/>
+    </schema>
+    <module ref="sandesha2"/>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+    </messageReceivers>
+    <parameter name="ServiceClass">org.apache.axis2.sample.rm.service.RMService</parameter>
+</service>

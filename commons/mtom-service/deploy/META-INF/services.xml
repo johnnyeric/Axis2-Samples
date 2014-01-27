@@ -1,0 +1,15 @@
+<service name="MTOMService" targetNamespace="http//axis2.apache.org/sample/mtom">
+    <description>
+        This is my first service, which says hello
+    </description>
+    <schema schemaNamespace="http//axis2.apache.org/sample/mtom/types"
+            elementFormDefaultQualified="true">
+        <mapping namespace="http//axis2.apache.org/sample/mtom/types"
+                 package="org.apache.axis2.sample.mtom.types"/>
+    </schema>
+    <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only"
+                             class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        </messageReceivers>
+    <parameter name="ServiceClass">org.apache.axis2.sample.mtom.MTOMService</parameter>
+</service>

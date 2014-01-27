@@ -1,0 +1,36 @@
+<project name="jaxws_service" default="create" basedir="..">
+
+    <target name="init">
+        <property environment="env"/>
+        <property name="service_home" value="${basedir}"/>
+        <property name="classes_dir" value="${service_home}/target/classes"/>
+        <property name="src_dir" value="${service_home}/src"/>
+        <property name="lib_dir" value="${env.AXIS2_HOME}/lib"/>
+        <property name="deploy_dir" value="${service_home}/deploy"/>
+        <property name="service_file" value="${env.CATALINA_HOME}/webapps/axis2/WEB-INF/servicejars/JAXWSService.jar"/>
+    </target>
+
+    <target name="create" depends="clean" description="creating the service jar">
+        <echo message="creating the service aar from ${service_home}"/>
+
+        <!-- creates deploy and class directoris -->
+        <mkdir dir="${deploy_dir}"/>
+
+        <!-- copy the classes -->
+        <copy todir="${deploy_dir}">
+            <fileset dir="${classes_dir}"/>
+        </copy>
+
+        <!-- create TestService.aar file -->
+        <jar destfile="${service_file}">
+            <zipfileset dir="${deploy_dir}" prefix=""/>
+        </jar>
+
+    </target>
+
+    <target name="clean" depends="init" description="deletes the old contentst">
+        <!--<delete dir="${classes_dir}"/>-->
+        <delete dir="${deploy_dir}"/>
+    </target>
+
+</project>

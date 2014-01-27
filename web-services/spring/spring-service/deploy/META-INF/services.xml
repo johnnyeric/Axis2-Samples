@@ -1,0 +1,19 @@
+<service name="SpringService"
+         class="org.apache.axis2.sample.spring.service.SpringContextLoader"
+         targetNamespace="http//axis2.apache.org/sample/spring">
+    <description>
+        This is my first spring service
+    </description>
+    <schema schemaNamespace="http//axis2.apache.org/sample/spring/types"
+            elementFormDefaultQualified="true">
+        <mapping namespace="http//axis2.apache.org/sample/spring/types"
+                 package="org.apache.axis2.sample.spring.types"/>
+    </schema>
+    <messageReceivers>
+        <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+                         class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+    </messageReceivers>
+    <parameter name="ServiceObjectSupplier" >org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier</parameter>
+    <parameter name="SpringBeanName" >springService</parameter>
+    <parameter name="ServiceClass">org.apache.axis2.sample.spring.service.SpringService</parameter>
+</service>

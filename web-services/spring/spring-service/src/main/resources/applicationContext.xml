@@ -1,0 +1,24 @@
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="applicationContext"
+          class="org.apache.axis2.extensions.spring.receivers.ApplicationContextHolder"/>
+
+    <bean id="springService" class="org.apache.axis2.sample.spring.service.SpringService">
+        <property name="project" ref="axis2Project"/>
+    </bean>
+
+    <bean id="axis2Project" class="org.apache.axis2.sample.spring.types.Project">
+        <property name="name" value="axis2"/>
+        <property name="manager" ref="axis2manager"/>
+    </bean>
+
+    <bean id="axis2manager" class="org.apache.axis2.sample.spring.types.Employee">
+        <property name="name" value="AAAAA"/>
+        <property name="age" value="42"/>
+        <property name="empID" value="E11"/>
+        <property name="salary" value="2345.56"/>
+    </bean>
+
+</beans>

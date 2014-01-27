@@ -1,0 +1,17 @@
+<service name="POJOService" targetNamespace="http//axis2.apache.org/sample/pojo">
+    <description>
+        This is my first service, which says hello
+    </description>
+    <schema schemaNamespace="http//axis2.apache.org/sample/pojo/types"
+            elementFormDefaultQualified="true">
+        <mapping namespace="http//axis2.apache.org/sample/pojo/types"
+                 package="org.apache.axis2.sample.pojo.types"/>
+    </schema>
+    <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out"
+                             class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        <messageReceiver mep="http://www.w3.org/ns/wsdl/in-only"
+                         class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"/>
+        </messageReceivers>
+    <parameter name="ServiceClass">org.apache.axis2.sample.pojo.service.POJOService</parameter>
+</service>
