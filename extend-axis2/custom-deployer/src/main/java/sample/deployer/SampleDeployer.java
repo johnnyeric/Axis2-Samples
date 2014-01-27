@@ -18,25 +18,24 @@ package sample.deployer;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axiom.om.util.StAXUtils;
+import org.apache.axis2.AxisFault;
 import org.apache.axis2.context.ConfigurationContext;
 import org.apache.axis2.deployment.Deployer;
 import org.apache.axis2.deployment.DeploymentException;
 import org.apache.axis2.deployment.repository.util.DeploymentFileData;
-import org.apache.axis2.description.AxisService;
 import org.apache.axis2.description.AxisOperation;
+import org.apache.axis2.description.AxisService;
 import org.apache.axis2.description.InOnlyAxisOperation;
 import org.apache.axis2.description.InOutAxisOperation;
-import org.apache.axis2.AxisFault;
+import sample.deployer.service.SampleInOnlyMessageReceiver;
+import sample.deployer.service.SampleInOutMessageReceiver;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import javax.xml.namespace.QName;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
-
-import sample.deployer.service.SampleInOnlyMessageReceiver;
-import sample.deployer.service.SampleInOutMessageReceiver;
 
 
 public class SampleDeployer implements Deployer {
@@ -91,6 +90,11 @@ public class SampleDeployer implements Deployer {
 
     public void setExtension(String string) {
 
+    }
+
+    @Override
+    public void undeploy(String s) throws DeploymentException {
+        //TODO handle undeployment
     }
 
     public void unDeploy(String s) throws DeploymentException {

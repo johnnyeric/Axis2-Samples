@@ -11,10 +11,32 @@
     <modules>
         <module>extend-axis2</module>
         <module>web-services</module>
-        <module>reliable-messaging</module>
+        <!--<module>reliable-messaging</module>-->
         <module>commons</module>
         <module>Json_badgerfish</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-api</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-impl</artifactId>
+            <version>1.2.14</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis2</groupId>
+            <artifactId>axis2-transport-http</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+    </dependencies>
 
 </project>
